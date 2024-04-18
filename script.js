@@ -44,3 +44,23 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        getComputerChoice();
+        getPlayerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    let finalScore = playerScore + " : " + computerScore;
+    if (playerScore > computerScore) {
+        computerScore = 0;
+        playerScore = 0;
+        return "Congratulations, you won! Final score: " + finalScore;
+    }
+    else {
+        computerScore = 0;
+        playerScore = 0;
+        return "Better luck next time. Final score: " + finalScore
+    }
+    
+}
