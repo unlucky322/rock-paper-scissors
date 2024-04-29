@@ -3,8 +3,8 @@ function getComputerChoice() {
     computerSelection = values[Math.floor(Math.random() * values.length)];
     return computerSelection
 }
-
 values = ['rock', 'paper', 'scissors'];
+
 let playerSelection;
 function getPlayerChoice() {
     playerSelection = prompt("Rock, paper, scissors? What will you choice?")
@@ -57,6 +57,10 @@ function playGame() {
         playerScore = 0;
         return "Congratulations, you won! Final score: " + finalScore;
     }
+    else if (playerScore == computerScore) {
+        return "Tie. Final score: " + finalScore 
+    }
+    
     else {
         computerScore = 0;
         playerScore = 0;
