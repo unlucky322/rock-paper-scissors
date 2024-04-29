@@ -11,11 +11,11 @@ function getComputerChoice() {
 function playRound(playerSelection) {
     let computerSelection = getComputerChoice()
     let result = ''
-    if ((playerSelection == 'rock' && computerSelection == 'scissors') || 
-        (playerSelection == 'paper' && computerSelection == 'rock') || 
-        (playerSelection == 'scissors' && computerSelection == 'papper') || 
+    if ((playerSelection == 'rock' && (computerSelection == 'scissors' || computerSelection == 'lizard')) || 
+        (playerSelection == 'paper' && (computerSelection == 'rock' || computerSelection == 'spock')) || 
+        (playerSelection == 'scissors' && (computerSelection == 'paper' || computerSelection == 'lizard')) || 
         (playerSelection == 'lizard' && (computerSelection == 'spock' ||    computerSelection == 'paper')) || 
-        playerSelection == 'spock' && (computerSelection == 'rock' || computerSelection == 'scissors')) {
+        (playerSelection == 'spock' && (computerSelection == 'rock' || computerSelection == 'scissors'))) {
 
         playerScore += 1;
         result = ("You won! " + playerSelection + " beats " + computerSelection + "<br>Player score: " + playerScore + " Computer score: " + computerScore);
@@ -26,6 +26,7 @@ function playRound(playerSelection) {
 
     } else if (playerSelection == computerSelection) {
         result = "Tie! Both player choice " + playerSelection + "<br>Player score: " + playerScore + " Computer score: " + computerScore;
+        
     } else {
         computerScore += 1;
         result = ("Computer won! " + computerSelection + " beats " + playerSelection + "<br>Player score: " + playerScore + " Computer score: " + computerScore);
