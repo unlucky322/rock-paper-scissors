@@ -8,6 +8,12 @@ function getComputerChoice() {
     return values[Math.floor(Math.random() * values.length)];
 }
 
+let disableButton = () => {
+    btn.forEach(elem => {
+        elem.disabled = true
+    })
+}
+
 function playRound(playerSelection) {
     let computerSelection = getComputerChoice()
     let result = ''
@@ -22,6 +28,8 @@ function playRound(playerSelection) {
         
         if (playerScore == 5) {
             result = "<br><br>Congratulations! You won!"
+            disableButton()
+            restartMessage()
         }
 
     } else if (playerSelection == computerSelection) {
@@ -33,12 +41,20 @@ function playRound(playerSelection) {
 
         if (computerScore == 5) {
             result += "<br><br>Computer won! Better luck next time!"
+            disableButton()
+            restartMessage()
         }
     }
 
     document.getElementById('result').innerHTML = result
     return
 }
+let restartMessage = () => {
+    const restart = document.getElementById('restartMsg')
+    restart.textContent = 'Press F5 if you want to play again'
+    return
+}
+
 const btn = document.querySelectorAll("button");
 btn.forEach(button => {
     button.addEventListener('click', () => {
