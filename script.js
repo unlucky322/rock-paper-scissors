@@ -24,7 +24,7 @@ function playRound(playerSelection) {
         (playerSelection == 'spock' && (computerSelection == 'rock' || computerSelection == 'scissors'))) {
 
         playerScore += 1;
-        result = ("You won! " + playerSelection + " beats " + computerSelection + "<br>Player score: " + playerScore + " Computer score: " + computerScore);
+        result = ("You won! " + capitalizeFirstLetter(playerSelection) + " beats " + capitalizeFirstLetter(computerSelection) + "<br>Player score: " + playerScore + " Computer score: " + computerScore);
         
         if (playerScore == 5) {
             result = "<br><br>Congratulations! You won!"
@@ -33,11 +33,11 @@ function playRound(playerSelection) {
         }
 
     } else if (playerSelection == computerSelection) {
-        result = "Tie! Both player choice " + playerSelection + "<br>Player score: " + playerScore + " Computer score: " + computerScore;
+        result = "Tie! Both player choice " + capitalizeFirstLetter(playerSelection) + "<br>Player score: " + playerScore + " Computer score: " + computerScore;
         
     } else {
         computerScore += 1;
-        result = ("Computer won! " + computerSelection + " beats " + playerSelection + "<br>Player score: " + playerScore + " Computer score: " + computerScore);
+        result = ("Computer won! " + capitalizeFirstLetter(computerSelection) + " beats " + capitalizeFirstLetter(playerSelection) + "<br>Player score: " + playerScore + " Computer score: " + computerScore);
 
         if (computerScore == 5) {
             result += "<br><br>Computer won! Better luck next time!"
@@ -53,6 +53,10 @@ let restartMessage = () => {
     const restart = document.getElementById('restartMsg')
     restart.textContent = 'Press F5 if you want to play again'
     return
+}
+
+function capitalizeFirstLetter (word) {
+    return word.charAt(0).toUpperCase() + word.slice(1)
 }
 
 const btn = document.querySelectorAll("button");
