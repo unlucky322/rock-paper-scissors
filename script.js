@@ -23,7 +23,6 @@ function playRound(playerSelection) {
         
         if (playerScore == 5) {
             result = "<br><br>Congratulations! You won!"
-            disableButton()
             restartMessage()
         }
 
@@ -36,7 +35,6 @@ function playRound(playerSelection) {
 
         if (computerScore == 5) {
             result += "<br><br>Computer won! Better luck next time!"
-            disableButton()
             restartMessage()
         }
     }
@@ -75,7 +73,8 @@ lizardBtn.addEventListener('click', () => playRound('lizard'))
 spockBtn.addEventListener('click', () => playRound('spock'))
 
 // Modal window did not do it 
-//just find this code
+// just find this code
+// just want a modal window
 const modalTrigger = document.getElementsByClassName("trigger")[0]
 
 const windowInnerWidth = document.documentElement.clientWidth
