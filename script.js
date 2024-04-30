@@ -1,18 +1,13 @@
 let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
-
 let computerSelection;
+
 function getComputerChoice() {
     values = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
     return values[Math.floor(Math.random() * values.length)];
 }
 
-let disableButton = () => {
-    btn.forEach(elem => {
-        elem.disabled = true
-    })
-}
 
 function playRound(playerSelection) {
     let computerSelection = getComputerChoice()
@@ -59,9 +54,64 @@ function capitalizeFirstLetter (word) {
     return word.charAt(0).toUpperCase() + word.slice(1)
 }
 
-const btn = document.querySelectorAll("button");
-btn.forEach(button => {
-    button.addEventListener('click', () => {
-        playRound(button.value)
-    })
+// const btn = document.querySelectorAll("button");
+// btn.forEach(button => {
+//     button.addEventListener('click', () => {
+//         playRound(button.value)
+//     })
+// })
+
+const rockBtn = document.getElementById('rock')
+const paperBtn = document.getElementById('paper')
+const scissorsBtn = document.getElementById('scissors')
+const lizardBtn = document.getElementById('lizard')
+const spockBtn = document.getElementById('spock')
+const disableButtons = document.getElementsByClassName('disable')
+
+rockBtn.addEventListener('click', () => playRound('rock'))
+paperBtn.addEventListener('click', () => playRound('paper'))
+scissorsBtn.addEventListener('click', () => playRound('scissors'))
+lizardBtn.addEventListener('click', () => playRound('lizard'))
+spockBtn.addEventListener('click', () => playRound('spock'))
+
+// Modal window did not do it 
+//just find this code
+const modalTrigger = document.getElementsByClassName("trigger")[0]
+
+const windowInnerWidth = document.documentElement.clientWidth
+const scrollbarWidth = parseInt(window.innerWidth) - parseInt(document.documentElement.clientWidth)
+
+const bodyElementHTML = document.getElementsByTagName("body")[0];
+const modalBackground = document.getElementsByClassName("modalBackground")[0];
+const modalActive = document.getElementsByClassName("modalActive")[0]
+const modalClose = document.getElementsByClassName('modalClose')[0]
+
+function bodyMargin() {
+    bodyElementHTML.style.marginRight = "-" + scrollbarWidth + "px";
+}
+bodyMargin()
+
+modalTrigger.addEventListener('click', () => {
+    modalBackground.style.display = 'block'
+
+    if (windowInnerWidth >= 1366) {
+        bodyMargin()
+    }
+    modalActive.style.left = "calc(50% - " + (175 - scrollbarWidth / 2) + "px)"
+})
+
+modalClose.addEventListener("click", function () {
+    modalBackground.style.display = "none"
+    if (windowInnerWidth >= 1366) {
+        bodyMargin()
+    }
+})
+
+modalBackground.addEventListener("click", function (event) {
+    if (event.target === modalBackground) {
+        modalBackground.style.display = "none"
+        if (windowInnerWidth >= 1366) {
+            bodyMargin()
+        }
+    }
 })

@@ -4,23 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Oh</title>
 </head>
 
 <header>
 
-    <h1>Rock! Paper! Scissors! Lizard? Spock?!</h1>
+    <div class="modalBackground">
+        <div class="modalActive">
+            <div class="modalClose">
+                <img src="img/cross.png" alt="cross">
+            </div>
+            <div class="modalWindow"></div>
+        </div>
+    </div>
+
+    <div id="htpBtn">
+        <button class="trigger">How To Play?</button>
+    </div>
+
+    <h1 id="logo">Rock! Paper! Scissors! Lizard? Spock?!</h1>
 
 </header>
 
 <body>
 
-    <button id="rock" value="rock">🗿</button>
-    <button id="papper" value="paper">📄</button>
-    <button id="scissors" value="scissors">✂️</button>
-    <button id="lizard" value="lizard">🦎</button>
-    <button id="spock" value="spock">🖖</button>
+    <button class="disable" id="rock" value="rock">🗿</button>
+    <button class="disable" id="paper" value="paper">📄</button>
+    <button class="disable" id="scissors" value="scissors">✂️</button>
+    <button class="disable" id="lizard" value="lizard">🦎</button>
+    <button class="disable" id="spock" value="spock">🖖</button>
 
     <div id="result"></div>
 
