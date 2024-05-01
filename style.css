@@ -31,12 +31,14 @@ html {
 header {
     background-color: #191d20;
     color: #D2D2D2;
+    cursor: default;
 }
 
 body {
     margin: 0px;
     padding: 0px;
-    margin-bottom: 100px
+    margin-bottom: 100px;
+    cursor: default;
 }
 
 body,
@@ -131,6 +133,10 @@ footer {
     justify-content: center;
     width: 100%;
     gap: 10px;
+}
+
+#footer-container p {
+    cursor: default;
 }
 
 #footer-container img {
